@@ -189,10 +189,6 @@ public class MSButton
             displayLosingMessage();
             return;
         }
-        else if(mines.contains(this))
-        {
-            fill(0, 255, 0);
-        }
         else if(clicked && countMines(myRow, myCol) > 0){
             fill( 200 );
             setLabel( countMines(myRow, myCol) );
