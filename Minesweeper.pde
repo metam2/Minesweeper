@@ -63,11 +63,11 @@ public boolean isWon()
     }
     for (MSButton[] row : buttons){
         for(MSButton button : row){
-            if(!mines.contains(button) && button.isClicked())
-                return true;
+            if(!mines.contains(button) && !button.isClicked())
+                return false;
         }
     }
-    return false;
+    return true;
 }
 public void stopGame()
 {
@@ -188,6 +188,10 @@ public class MSButton
             fill(255,0,0);
             displayLosingMessage();
             return;
+        }
+        else if(mines.contains(this))
+        {
+            fill(0, 255, 0);
         }
         else if(clicked && countMines(myRow, myCol) > 0){
             fill( 200 );
